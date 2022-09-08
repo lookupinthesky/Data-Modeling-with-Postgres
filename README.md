@@ -18,7 +18,7 @@ $$$ python etl.py
 
 ```
 
-### Entity Relationship Diagram 
+### Entity Relationship Diagram (Star - Schema)
 
 ![schema](./schema.png)
 

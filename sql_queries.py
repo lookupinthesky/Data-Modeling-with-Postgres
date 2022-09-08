@@ -8,8 +8,6 @@ time_table_drop = "DROP table IF EXISTS time"
 
 # CREATE TABLES
 
-
-
 user_table_create = ("""CREATE TABLE IF NOT EXISTS users (user_id int PRIMARY KEY, first_name varchar, last_name varchar, gender varchar, level varchar)
 """)
 
@@ -18,21 +16,15 @@ artist_table_create = ("""CREATE TABLE IF NOT EXISTS artists (id SERIAL PRIMARY 
 """)
 
 
-song_table_create = ("""CREATE TABLE IF NOT EXISTS songs (song_id varchar PRIMARY KEY, title varchar, artist_id varchar, year int, duration real, CONSTRAINT fk_songs_artists FOREIGN KEY(artist_id) REFERENCES artists(artist_id))
+song_table_create = ("""CREATE TABLE IF NOT EXISTS songs (song_id varchar PRIMARY KEY, title varchar, artist_id varchar, year int, duration float, CONSTRAINT fk_songs_artists FOREIGN KEY(artist_id) REFERENCES artists(artist_id))
 """)
 
-
-# 
 
 time_table_create = ("""CREATE TABLE IF NOT EXISTS time (start_time TIMESTAMP PRIMARY KEY, hour int, day int, week int, month int, year int, weekday varchar)
 """)
 
 songplay_table_create = (""" CREATE TABLE IF NOT EXISTS songplays (songplay_id SERIAL PRIMARY KEY, start_time TIMESTAMP, user_id int, level varchar, song_id varchar, artist_id varchar, session_id int, location varchar, user_agent varchar, CONSTRAINT fk_songplays_songs FOREIGN KEY (song_id) REFERENCES songs (song_id), CONSTRAINT fk_songplays_users FOREIGN KEY (user_id) REFERENCES users (user_id), CONSTRAINT fk_songplays_artists FOREIGN KEY (artist_id) REFERENCES artists (artist_id), CONSTRAINT fk_songplays_time FOREIGN KEY (start_time) REFERENCES time (start_time) )
 """)
-
-
-# 
-
 
 
 # INSERT RECORDS
